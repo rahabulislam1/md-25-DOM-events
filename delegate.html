@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event delegate</title>
+</head>
+
+<body>
+    <h2>Event delegate</h2>
+    <ul id="item-container">
+        <li class="item">Lorem, ipsum.</li>
+        <li class="item">Fugiat, eum.</li>
+        <li class="item">Blanditiis, voluptatem!</li>
+        <li class="item">Nulla, officiis!</li>
+        <li class="item">Perferendis, iusto.</li>
+        <li class="item">Cumque, veniam?</li>
+    </ul>
+    <button id="add-itemBtn">Add Item</button>
+
+    <script>
+        ////////// item remove without add items
+        // const items = document.getElementsByClassName('item');
+        // for (const item of items) {
+        //     item.addEventListener('click', function (event) {
+        //         // remove method-1
+        //         // document.getElementById('item-container').removeChild(item);
+
+        //         // remove method-2
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        document.getElementById('add-itemBtn').addEventListener('click', function () {
+            const li = document.createElement('li');
+            li.innerText = 'Sound Box';
+            li.classList.add('item');
+            const parent = document.getElementById('item-container');
+            parent.appendChild(li);
+
+        });
+
+
+        ////////// item remove with add items
+        document.getElementById('item-container').addEventListener('click', function (event) {
+            // console.log(event.target);
+            event.target.parentNode.removeChild(event.target);
+        })
+    </script>
+</body>
+
+</html>
